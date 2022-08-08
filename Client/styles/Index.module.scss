@@ -1,3 +1,53 @@
-.all {
+@import "./mixins.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   text-align: center;
+  background: no-repeat url("../public/img/Background.jpg");
+}
+
+.content {
+  margin-top: calc(50vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include media-up(sm) {
+    margin-top: calc(50vh - 10rem);
+  }
+}
+
+.welcomeText {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 10rem;
+  margin-bottom: 20px;
+
+  @include media-up(sm) {
+    margin: 0;
+    text-align: center;
+  }
+
+  h1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 3rem;
+  }
+
+  p {
+    color: #a9a9a9;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+.button {
+  @include button;
+
+  @include media-up(sm) {
+    margin-top: 5rem;
+  }
 }

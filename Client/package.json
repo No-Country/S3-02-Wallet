@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
+    "framer-motion": "^7.0.0",
     "next": "12.2.4",
+    "next-auth": "^4.10.3",
     "next-redux-wrapper": "^7.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.2",
     "redux-persist": "^6.0.0",
-    "sass": "^1.54.3"
+    "sass": "^1.54.3",
+    "styled-icons": "^10.45.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

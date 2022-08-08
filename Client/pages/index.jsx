@@ -1,39 +1,55 @@
 import Head from "next/head";
-import { useState } from "react";
-import { addUser } from "../store/usersSlice";
-import { increment } from "../store/countSlice";
-import { useSelector, useDispatch } from "react-redux";
-import styles from "../styles/Index.module.scss";
+import { useRouter } from "next/router";
+// import { useState } from "react";
+// import { addUser } from "../store/usersSlice";
+// import { increment } from "../store/countSlice";
+// import { useSelector, useDispatch } from "react-redux";
+import styles from "../styles/index.module.scss";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const count = useSelector((state) => state.counter.count);
-  const users = useSelector((state) => state.users.users);
+  const router = useRouter();
+  // const dispatch = useDispatch();
+  // const [name, setName] = useState("");
+  // const count = useSelector((state) => state.counter.count);
+  // const users = useSelector((state) => state.users.users);
 
-  const addUsers = () => {
-    dispatch(addUser(name));
-  };
+  // const addUsers = () => {
+  //   dispatch(addUser(name));
+  // };
 
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setName(event.target.value);
+  // };
 
   return (
-    <div className={styles.all}>
+    <motion.div
+      initial="pageInitial"
+      animate="pageAnimate"
+      exit="pageExit"
+      variants={{
+        pageInitial: {
+          opacity: 0,
+        },
+        pageAnimate: {
+          opacity: 1,
+        },
+        pageExit: {
+          // opacity: 0,
+          transition: {
+            ease: "easeInOut",
+            duration: 0.3,
+          },
+        },
+      }}
+      className={styles.container}
+    >
       <Head>
         <title>Wallet App</title>
         <meta name="description" content="Wallet App" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
       </Head>
-
-      <div>
+      {/* <div>
         <span>
           <h1>New User: </h1>
           <input type="text" value={name} onChange={handleChange} />
@@ -57,7 +73,68 @@ export default function Home() {
         <h1>Counter: {count}</h1>
 
         <button onClick={() => dispatch(increment())}>Add to Count</button>
+      </div> */}
+
+      <div className={styles.content}>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {
+              translateY: 100,
+              opacity: 0,
+            },
+            visible: {
+              translateY: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+                duration: 0.8,
+              },
+            },
+          }}
+          className={styles.welcomeText}
+        >
+          <h1>Best way to tracking your money</h1>
+          <p>
+            Best payment method, connects your money with your family and
+            friends.
+          </p>
+        </motion.div>
+
+        <motion.button
+          initial="hidden"
+          animate="visible"
+          whileFocus="click"
+          onTap={() =>
+            setTimeout(() => {
+              router.push("/login");
+            }, 1000)
+          }
+          variants={{
+            hidden: {
+              opacity: 0,
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                delay: 1,
+                duration: 0.8,
+              },
+            },
+            click: {
+              scale: 500,
+              transition: {
+                ease: "easeOut",
+                duration: 0.3,
+              },
+            },
+          }}
+          className={styles.button}
+        >
+          Get Started
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 }
