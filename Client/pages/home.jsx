@@ -1,23 +1,40 @@
 import { signOut } from "next-auth/react";
 import { getSession } from "next-auth/react";
+import styles from "../styles/home.module.scss";
+import { motion } from "framer-motion";
 
 export default function Home({ user }) {
   return (
-    <div
-      style={{
-        display: "grid",
-        placeContent: "center",
-        placeItems: "center",
-        gap: "1rem",
+    <motion.div
+      initial={{
+        opacity: 0,
       }}
+      animate={{
+        opacity: 1,
+        transition: {
+          ease: "easeIn",
+          duration: 1.2,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          ease: "easeInOut",
+          duration: 0.8,
+        },
+      }}
+      className={styles.container}
     >
-      <h3>Signed in as {user.name}</h3>
+      {/* <h3>Signed in as {user.name}</h3>
       <h3>Your email is {user.email}</h3>
       <img src={user.image} alt={user.name} referrerPolicy="no-referrer" />
       <button onClick={() => signOut({ callbackUrl: "/login" })}>
         Sign out
-      </button>
-    </div>
+      </button> */}
+      <p>Home</p>
+      <p>Content</p>
+      <p>Footer</p>
+    </motion.div>
   );
 }
 

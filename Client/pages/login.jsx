@@ -13,9 +13,23 @@ const Login = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0,}}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          ease: "easeIn",
+          duration: 1.2,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          ease: "easeInOut",
+          duration: 0.8,
+        },
+      }}
       className={styles.container}
     >
       <div className={styles.content}>
