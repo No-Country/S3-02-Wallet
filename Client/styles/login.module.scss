@@ -1,0 +1,118 @@
+@import "./mixins.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  background: no-repeat url("../public/img/Background.jpg");
+}
+
+.content {
+  margin-top: calc(100vh - 52.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include media-up(sm) {
+    margin-top: calc(100vh - 50rem);
+  }
+}
+
+.welcomeText {
+  margin-left: 2rem;
+  text-align: left;
+  width: fit-content;
+
+  h1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 4rem;
+  }
+
+  p {
+    color: #a9a9a9;
+    font-weight: 500;
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  @include media-up(sm) {
+    text-align: center;
+  }
+}
+
+.form {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  gap: 4.5rem;
+  margin-right: 1.8rem;
+  margin-bottom: 0.5rem;
+  width: 25rem;
+  height: 10rem;
+}
+
+.checkbox {
+  display: flex;
+  margin-right: 9rem;
+  color: white;
+
+  p {
+    margin-left: 5px;
+  }
+}
+
+.linkText {
+  cursor: pointer;
+  color: #d9d9d9;
+  text-decoration: underline;
+}
+
+.button {
+  @include button(12px);
+  margin-top: 1rem;
+  width: 15rem;
+}
+
+.line {
+  margin-top: 1.5rem;
+  width: 10rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.social {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  .socialButtons {
+    cursor: pointer;
+    background-color: #d9d9d9;
+    width: 104.09px;
+    height: 49.32px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+    @include transition-all;
+    @include dropShadowMd;
+
+    &:active {
+      @include scale90();
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+    }
+  }
+}
