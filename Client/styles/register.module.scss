@@ -1,11 +1,7 @@
 @import "./mixins.scss";
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  text-align: center;
-  background: no-repeat url("../public/img/Background.jpg");
+  @include container();
 }
 
 .arrow {
@@ -38,6 +34,7 @@
 }
 
 .content {
+  overflow: hidden;
   display: grid;
   place-items: center;
   place-content: center;

@@ -1,9 +1,13 @@
 html,
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
+  background: url("../public/img/Background.jpg");
 }
 
 .spinner-wrapper {
@@ -16,7 +20,6 @@ body {
   top: 0;
   left: 0;
   background-color: #0059f1;
-  /* background: no-repeat url("../public/img/Background.jpg"); */
   z-index: 9999;
 }
 .spinner {

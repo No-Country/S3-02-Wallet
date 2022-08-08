@@ -1,0 +1,5 @@
+@import "./mixins.scss";
+
+.container {
+  @include mobileContainer();
+}
