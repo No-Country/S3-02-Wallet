@@ -1,0 +1,222 @@
+$button-size: calc(60px * 0.5);
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: #dadce1;
+    text-decoration: none;
+  }
+}
+
+.welcomeText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 1rem;
+  text-align: left;
+
+  h2 {
+    margin: 0;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  p {
+    margin: 0;
+    margin-right: 13px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.profileImg {
+  cursor: pointer;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.profileItem {
+  width: calc(68px * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton {
+  width: $button-size;
+  height: $button-size;
+  background-color: #484a4d;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 65px;
+  width: 300px;
+  transform: translateX(-45%);
+  -webkit-transform: translateX(-45%);
+  -moz-transform: translateX(-45%);
+  -ms-transform: translateX(-45%);
+  -o-transform: translateX(-45%);
+  background-color: #242526;
+  border: 1px solid #474a4d;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 1rem;
+  overflow: hidden;
+  transition: height 500ms ease;
+  -webkit-transition: height 500ms ease;
+  -moz-transition: height 500ms ease;
+  -ms-transition: height 500ms ease;
+  -o-transition: height 500ms ease;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menuItem {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  transition: background 500ms;
+  -webkit-transition: background 500ms;
+  -moz-transition: background 500ms;
+  -ms-transition: background 500ms;
+  -o-transition: background 500ms;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: #525357;
+  }
+
+  .iconButton {
+    margin-right: 0.5rem;
+
+    &:hover {
+      filter: none;
+      -webkit-filter: none;
+    }
+  }
+}
+
+.iconRight {
+  margin-left: auto;
+  width: $button-size;
+  height: $button-size;
+}
+
+.menuPrimaryEnter {
+  position: absolute;
+  transform: translateX(-110%);
+  -webkit-transform: translateX(-110%);
+  -moz-transform: translateX(-110%);
+  -ms-transform: translateX(-110%);
+  -o-transform: translateX(-110%);
+}
+.menuPrimaryEnterActive {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+.menuPrimaryExit {
+  position: absolute;
+}
+.menuPrimaryExitActive {
+  transform: translateX(-110%);
+  -webkit-transform: translateX(-110%);
+  -moz-transform: translateX(-110%);
+  -ms-transform: translateX(-110%);
+  -o-transform: translateX(-110%);
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.menuSecondaryEnter {
+  transform: translateX(110%);
+  -webkit-transform: translateX(110%);
+  -moz-transform: translateX(110%);
+  -ms-transform: translateX(110%);
+  -o-transform: translateX(110%);
+}
+.menuSecondaryEnterActive {
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.menuSecondaryExitActive {
+  transform: translateX(110%);
+  -webkit-transform: translateX(110%);
+  -moz-transform: translateX(110%);
+  -ms-transform: translateX(110%);
+  -o-transform: translateX(110%);
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}

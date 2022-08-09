@@ -1,9 +1,13 @@
-import { signOut } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import styles from "../styles/home.module.scss";
 import { motion } from "framer-motion";
+import Header from "../components/Header/Header";
+import { useDispatch } from "react-redux";
+import { setOpen } from "../store/dropdownSlice";
 
 export default function Home({ user }) {
+  const dispatch = useDispatch();
+
   return (
     <motion.div
       initial={{
@@ -24,14 +28,9 @@ export default function Home({ user }) {
         },
       }}
       className={styles.container}
+      onClick={() => dispatch(setOpen(false))}
     >
-      {/* <h3>Signed in as {user.name}</h3>
-      <h3>Your email is {user.email}</h3>
-      <img src={user.image} alt={user.name} referrerPolicy="no-referrer" />
-      <button onClick={() => signOut({ callbackUrl: "/login" })}>
-        Sign out
-      </button> */}
-      <p>Home</p>
+      <Header user={user} />
       <p>Content</p>
       <p>Footer</p>
     </motion.div>
