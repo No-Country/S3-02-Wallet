@@ -2,7 +2,7 @@ import { signOut } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import styles from "../styles/home.module.scss";
 import { motion } from "framer-motion";
-
+import CardSelector from "../components/CardSelector"
 export default function Home({ user }) {
   return (
     <motion.div
@@ -32,7 +32,14 @@ export default function Home({ user }) {
         Sign out
       </button> */}
       <p>Home</p>
+      <div>
       <p>Content</p>
+      <CardSelector cards={[
+    { provider: "visa", level: "base", number: 8888777766665555 },
+    { provider: "mc", level: "black", number: 8888777766668555 },
+    { provider: "mc", level: "platinum", number: 8888777766664555 }
+  ]}/>
+      </div>
       <p>Footer</p>
     </motion.div>
   );

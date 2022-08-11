@@ -1,0 +1,23 @@
+@import "./mixins.scss";
+
+.mc_card{
+    @include card(mc)
+}
+
+.visa_card{
+    @include card(visa)
+}
+
+
+// variables.scss
+$base: #FFD078;
+$gold: #DAA520;
+$platinum: #E5E4E2;
+$black: #1D1D1D;
+
+:export {
+  base: $base;
+  gold: $gold;
+  platinum: $platinum;
+  black: $black
+}

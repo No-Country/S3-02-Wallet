@@ -140,3 +140,32 @@ $breakpoints: (
   display: grid;
   grid-template-rows: 1fr 9fr 1fr;
 }
+
+//Card styles
+$card-levels:(
+  base: #FFD078,
+  gold: #DAA520,
+  platinum: #E5E4E2,
+  black: #1D1D1D
+);
+
+$card-brands: (
+visa: url("../public/img/visa.png"),
+mc: url("../public/img/mc.png")
+);
+
+@mixin card ($card-brand){
+  @include dropShadowMd();
+  min-width: 288px;
+  height: 170px;
+  left: 24px;
+  top: 195px;
+  background: #FBCD77;
+  border-radius: 15px;
+  display: flex;
+   p{
+    align-self: flex-end;
+    margin-bottom: 15px ;
+    margin-left: 5%;
+   }
+}
