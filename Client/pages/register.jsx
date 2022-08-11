@@ -1,9 +1,12 @@
-import { useRouter } from "next/router";
-import styles from "../styles/register.module.scss";
 import { useState } from "react";
-import { ArrowIosBack } from "@styled-icons/evaicons-solid/ArrowIosBack";
-import Input from "../components/Input";
+
+import { useRouter } from "next/router";
+
 import { motion } from "framer-motion";
+import { ArrowIosBack } from "@styled-icons/evaicons-solid/ArrowIosBack";
+
+import Input from "../components/Input";
+import styles from "../styles/register.module.scss";
 
 const Register = () => {
   const router = useRouter();

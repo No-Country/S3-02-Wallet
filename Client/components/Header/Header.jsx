@@ -1,7 +1,7 @@
-import styles from "../../styles/header.module.scss";
-import Image from "next/image";
-import { signOut } from "next-auth/react";
 import { useState, useRef, useEffect } from "react";
+import { signOut } from "next-auth/react";
+import Image from "next/image";
+
 import { Settings } from "@styled-icons/feather/Settings";
 import { IosArrowRight } from "@styled-icons/fluentui-system-filled/IosArrowRight";
 import { Person } from "@styled-icons/bootstrap/Person";
@@ -11,6 +11,8 @@ import { Logout } from "@styled-icons/material-outlined/Logout";
 import { Notifications } from "@styled-icons/material-outlined/Notifications";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
+
+import styles from "../../styles/header.module.scss";
 import { setOpen } from "../../store/dropdownSlice";
 
 const Header = ({ user }) => {
@@ -20,24 +22,26 @@ const Header = ({ user }) => {
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
       <div className={styles.welcomeText}>
-        <h2>Hey user!</h2>
+        <h2>Hey {user.name.split(" ")[0]}!</h2>
         <p>Welcome back</p>
       </div>
 
-      <ul className={styles.profile}>
-        <Image
-          src={user.image}
-          alt={user.name}
-          width="50px"
-          height="50px"
-          className={styles.profileImg}
-          priority
-          referrerPolicy="no-referrer"
-          onClick={() => dispatch(setOpen(!open))}
-        />
+      <div className={styles.profile}>
+        <ul>
+          <Image
+            src={user.image}
+            alt={user.name}
+            width="50px"
+            height="50px"
+            className={styles.profileImg}
+            priority
+            referrerPolicy="no-referrer"
+            onClick={() => dispatch(setOpen(!open))}
+          />
 
-        <AnimatePresence>{open && <DropdownMenu />}</AnimatePresence>
-      </ul>
+          <AnimatePresence>{open && <DropdownMenu />}</AnimatePresence>
+        </ul>
+      </div>
     </div>
   );
 };
@@ -46,6 +50,7 @@ function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -85,7 +90,6 @@ function DropdownMenu() {
           ease: "easeInOut",
           duration: 0.3,
         },
-        animationFillMode: "forwards",
       }}
       exit={{
         opacity: 0,
@@ -95,7 +99,7 @@ function DropdownMenu() {
         },
       }}
       className={styles.dropdown}
-      style={{ height: menuHeight }}
+      //  style={{ height: menuHeight }}
     >
       <CSSTransition
         in={activeMenu === "main"}
@@ -121,14 +125,13 @@ function DropdownMenu() {
           >
             Settings
           </DropdownItem>
-          <DropdownItem leftIcon={<Logout />}>
-            <p
-              onClick={() => signOut({ callbackUrl: "/login" })}
-              style={{ width: "14.5rem" }}
-            >
-              Logout
-            </p>
-          </DropdownItem>
+          <span
+            onClick={() =>
+              dispatch(setOpen(false)) && signOut({ callbackUrl: "/login" })
+            }
+          >
+            <DropdownItem leftIcon={<Logout />}>Logout</DropdownItem>
+          </span>
         </div>
       </CSSTransition>
 

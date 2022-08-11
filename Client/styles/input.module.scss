@@ -28,6 +28,85 @@
   &:focus {
     border-color: #18ffff;
   }
+
+  &:valid {
+    border-color: #18ffff;
+  }
+
+  &:focus:invalid {
+    border-color: red;
+  }
+
+  &:focus:placeholder-shown {
+    border-color: red;
+  }
+}
+
+.inputError {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid red;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: white;
+  outline: none;
+  padding: 1.25rem;
+  background: none;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  animation: vibrate 0.3s;
+  -webkit-animation: vibrate 0.3s;
+
+  @keyframes vibrate {
+    25% {
+      transform: translateX(-5px);
+      -webkit-transform: translateX(-5px);
+      -moz-transform: translateX(-5px);
+      -ms-transform: translateX(-5px);
+      -o-transform: translateX(-5px);
+    }
+
+    50% {
+      transform: translateX(5px);
+      -webkit-transform: translateX(5px);
+      -moz-transform: translateX(5px);
+      -ms-transform: translateX(5px);
+      -o-transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+      -webkit-transform: translateX(-5px);
+      -moz-transform: translateX(-5px);
+      -ms-transform: translateX(-5px);
+      -o-transform: translateX(-5px);
+    }
+  }
+
+  // &:hover{
+
+  //   border-color: #adffff;
+  // }
+  // &:focus {
+  //   border-color: #18ffff;
+  // }
+
+  // &:valid {
+  //   border-color: #18ffff;
+  // }
+
+  // &:focus:invalid {
+  //   border-color: red;
+  // }
+
+  // &:focus:placeholder-shown {
+  //   border-color: red;
+  // }
 }
 
 .label {
@@ -49,6 +128,13 @@
 
 .input:focus ~ .label,
 .input:not(:placeholder-shown).input:not(:focus) ~ .label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.inputError:focus ~ .label,
+.inputError:not(:placeholder-shown).inputError:not(:focus) ~ .label {
   top: -0.5rem;
   font-size: 0.8rem;
   left: 0.8rem;

@@ -1,11 +1,14 @@
+// import { useState } from "react";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
-// import { useState } from "react";
+
+import { motion } from "framer-motion";
+// import { useSelector, useDispatch } from "react-redux";
+
 // import { addUser } from "../store/usersSlice";
 // import { increment } from "../store/countSlice";
-// import { useSelector, useDispatch } from "react-redux";
 import styles from "../styles/index.module.scss";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();

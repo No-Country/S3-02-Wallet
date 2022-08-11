@@ -36,7 +36,7 @@ $button-size: calc(60px * 0.5);
 
   p {
     margin: 0;
-    margin-right: 13px;
+    margin-right: 40px;
     font-weight: 300;
     font-size: 16px;
     line-height: 22px;
@@ -49,17 +49,31 @@ $button-size: calc(60px * 0.5);
   align-items: center;
   justify-content: center;
   padding: 15px;
+
+  ul {
+    margin-top: 0.5rem;
+  }
 }
 
 .profileImg {
   cursor: pointer;
   object-fit: contain;
   object-position: center;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: filter 300ms;
+  &:hover {
+    filter: brightness(1.02);
+    -webkit-filter: brightness(1.02);
+  }
+
+  &:focus {
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
+  }
 }
 
 .profileItem {
@@ -89,13 +103,13 @@ $button-size: calc(60px * 0.5);
 
 .dropdown {
   position: absolute;
-  top: 65px;
+  top: 75px;
   width: 300px;
-  transform: translateX(-45%);
-  -webkit-transform: translateX(-45%);
-  -moz-transform: translateX(-45%);
-  -ms-transform: translateX(-45%);
-  -o-transform: translateX(-45%);
+  transform: translateX(-83%);
+  -webkit-transform: translateX(-83%);
+  -moz-transform: translateX(-83%);
+  -ms-transform: translateX(-83%);
+  -o-transform: translateX(-83%);
   background-color: #242526;
   border: 1px solid #474a4d;
   border-radius: 8px;
@@ -110,6 +124,7 @@ $button-size: calc(60px * 0.5);
   -moz-transition: height 500ms ease;
   -ms-transition: height 500ms ease;
   -o-transition: height 500ms ease;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
 }
 
 .menu {
@@ -148,8 +163,8 @@ $button-size: calc(60px * 0.5);
 
 .iconRight {
   margin-left: auto;
-  width: $button-size;
-  height: $button-size;
+  width: 22px;
+  height: 22px;
 }
 
 .menuPrimaryEnter {

@@ -1,11 +1,18 @@
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+
+import { SessionProvider } from "next-auth/react";
+import Head from "next/head";
+
 import { wrapper } from "../store/store";
 import { useStore } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { SessionProvider } from "next-auth/react";
+
 import "../styles/globals.css";
 import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // function Loading() {
 //   const router = useRouter();
@@ -45,8 +52,15 @@ function WalletApp({ Component, pageProps, session, router }) {
         {/* Need to check this later */}
         {/* <Loading /> */}
         <AnimatePresence>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+          </Head>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
+        <ToastContainer />
       </PersistGate>
     </SessionProvider>
   );

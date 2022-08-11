@@ -1,9 +1,11 @@
 import { getSession } from "next-auth/react";
-import styles from "../styles/home.module.scss";
+
 import { motion } from "framer-motion";
-import Header from "../components/Header/Header";
 import { useDispatch } from "react-redux";
+
+import Header from "../components/Header/Header";
 import { setOpen } from "../store/dropdownSlice";
+import styles from "../styles/home.module.scss";
 
 export default function Home({ user }) {
   const dispatch = useDispatch();

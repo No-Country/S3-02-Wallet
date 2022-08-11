@@ -133,6 +133,7 @@ $breakpoints: (
   height: 100vh;
   overflow: hidden;
   max-width: 1440px;
+  margin: auto;
 }
 
 @mixin mobileContainer {
