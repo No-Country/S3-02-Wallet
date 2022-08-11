@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 
 import Header from "../components/Header/Header";
+import { Footer } from "../components/Footer";
 import { setOpen } from "../store/dropdownSlice";
 import styles from "../styles/home.module.scss";
 
@@ -34,7 +35,7 @@ export default function Home({ user }) {
     >
       <Header user={user} />
       <p>Content</p>
-      <p>Footer</p>
+      <Footer />
     </motion.div>
   );
 }
