@@ -49,6 +49,7 @@ n = n.substring(0, 4) + " " + n.substring(4, 8)+ " " + n.substring(8, 12)+ " " +
           }
           p{
             color: ${color};
+            font-weight: bold;
           }
         `}</style>
       </div>

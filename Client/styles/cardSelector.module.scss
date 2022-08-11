@@ -23,7 +23,11 @@
     padding: 15px 0 15px 30px;
     gap: 2rem;
     display:flex;
+    :last-child{
+      margin-right: 1.5rem;
+    }
     div{
       scroll-snap-align: center;
+      
     }
 }
