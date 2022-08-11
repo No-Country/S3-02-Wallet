@@ -5,12 +5,14 @@ $breakpoints: (
 );
 
 //Mixin para media query
+//Mixin para media query
 @mixin media-up($breakpoint) {
   @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
+//Mixin para transiciones
 //Mixin para transiciones
 @mixin transition-all {
   transition-property: all;
@@ -49,11 +51,13 @@ $breakpoints: (
 }
 
 // Mixin para agregar sombras
+// Mixin para agregar sombras
 @mixin dropShadowMd {
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
     drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
+// Mixin para Inputs
 // Mixin para Inputs
 @mixin formInputs($overflowY: scroll) {
   display: flex;
@@ -135,4 +139,33 @@ $breakpoints: (
   @include container();
   display: grid;
   grid-template-rows: 1fr 9fr 0.5fr;
+}
+
+//Card styles
+$card-levels: (
+  base: #ffd078,
+  gold: #daa520,
+  platinum: #e5e4e2,
+  black: #1d1d1d,
+);
+
+$card-brands: (
+  visa: url("../public/img/visa.png"),
+  mc: url("../public/img/mc.png"),
+);
+
+@mixin card($card-brand) {
+  @include dropShadowMd();
+  min-width: 288px;
+  height: 170px;
+  left: 24px;
+  top: 195px;
+  background: #fbcd77;
+  border-radius: 15px;
+  display: flex;
+  p {
+    align-self: flex-end;
+    margin-bottom: 15px;
+    margin-left: 5%;
+  }
 }
