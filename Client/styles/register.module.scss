@@ -20,7 +20,11 @@
   @include transition-all;
 
   &:active {
-    @include scale90;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
   }
 }
 
@@ -66,4 +70,12 @@
   @include button(6px);
   margin-top: 1rem;
   width: 15rem;
+  
+  &:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+  }
 }

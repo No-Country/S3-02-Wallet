@@ -30,6 +30,7 @@ const Login = () => {
         pauseOnHover: false,
         draggable: false,
         progress: undefined,
+        toastId: 1,
       });
       setTimeout(() => {
         setError(false);

@@ -60,7 +60,7 @@ function WalletApp({ Component, pageProps, session, router }) {
           </Head>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
-        <ToastContainer />
+        <ToastContainer limit={1}/>
       </PersistGate>
     </SessionProvider>
   );

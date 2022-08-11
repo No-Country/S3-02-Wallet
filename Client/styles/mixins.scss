@@ -18,15 +18,6 @@ $breakpoints: (
   transition-duration: 150ms;
 }
 
-//Mixin para achicar botón al hacerle click
-@mixin scale90 {
-  transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
-}
-
 // Mixin de botón de inicio
 @mixin button($border-radius: 0.5rem) {
   background-color: #347af0;
@@ -41,7 +32,11 @@ $breakpoints: (
   @include transition-all;
 
   &:active {
-    @include scale90();
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
   }
 
   &:hover {
@@ -139,5 +134,5 @@ $breakpoints: (
 @mixin mobileContainer {
   @include container();
   display: grid;
-  grid-template-rows: 1fr 9fr 1fr;
+  grid-template-rows: 1fr 9fr 0.5fr;
 }
