@@ -102,6 +102,7 @@ $button-size: calc(60px * 0.5);
 }
 
 .dropdown {
+  z-index: 2;
   position: absolute;
   top: 75px;
   width: 300px;

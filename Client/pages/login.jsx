@@ -31,6 +31,7 @@ const Login = () => {
         draggable: false,
         progress: undefined,
         toastId: 1,
+        theme: "colored",
       });
       setTimeout(() => {
         setError(false);

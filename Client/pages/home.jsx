@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 
 import Header from "../components/Header/Header";
+import Balance from "../components/Balance/Balance";
 import CardSelector from "../components/CardSelector";
 import { Footer } from "../components/Footer";
 import { setOpen } from "../store/dropdownSlice";
@@ -35,13 +36,16 @@ export default function Home({ user }) {
       onClick={() => dispatch(setOpen(false))}
     >
       <Header user={user} />
-      <CardSelector
-        cards={[
-          { provider: "visa", level: "base", number: 8888777766665555 },
-          { provider: "mc", level: "black", number: 8888777766668555 },
-          { provider: "mc", level: "platinum", number: 8888777766664555 },
-        ]}
-      />
+      <div>
+        <Balance />
+        <CardSelector
+          cards={[
+            { provider: "visa", level: "base", number: 8888777766665555 },
+            { provider: "mc", level: "black", number: 8888777766668555 },
+            { provider: "mc", level: "platinum", number: 8888777766664555 },
+          ]}
+        />
+      </div>
       <Footer />
     </motion.div>
   );
