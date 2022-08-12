@@ -36,7 +36,7 @@ export default function Home({ user }) {
       onClick={() => dispatch(setOpen(false))}
     >
       <Header user={user} />
-      <div>
+      <div className={styles.content}>
         <Balance />
         <CardSelector
           cards={[

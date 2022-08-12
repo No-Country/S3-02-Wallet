@@ -6,6 +6,8 @@
 
 html,
 body {
+  overflow: hidden;
+  width: 100%;
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

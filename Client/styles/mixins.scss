@@ -131,14 +131,8 @@ $breakpoints: (
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  max-width: 1440px;
+  max-width: 1024px;
   margin: auto;
-}
-
-@mixin mobileContainer {
-  @include container();
-  display: grid;
-  grid-template-rows: 1fr 9fr 0.5fr;
 }
 
 //Card styles
