@@ -9,6 +9,7 @@ import CardSelector from "../components/CardSelector";
 import { Footer } from "../components/Footer";
 import { setOpen } from "../store/dropdownSlice";
 import styles from "../styles/home.module.scss";
+import MiddleMenu from "../components/MiddleMenu/MiddleMenu";
 
 export default function Home({ user }) {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export default function Home({ user }) {
       <Header user={user} />
       <div className={styles.content}>
         <Balance />
+        <MiddleMenu />
         <CardSelector
           cards={[
             { provider: "visa", level: "base", number: 8888777766665555 },

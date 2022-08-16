@@ -1,0 +1,48 @@
+@import "../../styles/mixins.scss";
+
+.container {
+  display: none;
+
+  @include media-up(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+.menuItem {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  height: 83px;
+  gap: 0.5rem;
+  @include transition-all();
+
+  .icon {
+    padding: 1rem;
+    background: #ffffff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #347af0;
+  }
+
+  h5 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+}
