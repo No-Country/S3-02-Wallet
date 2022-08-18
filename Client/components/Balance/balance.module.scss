@@ -1,0 +1,34 @@
+@import "../../styles/mixins.scss";
+
+.container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  padding: 2rem;
+  @include transition-all();
+
+  h1 {
+    color: #bdbdbd;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 33px;
+  }
+
+  h3 {
+    color: #347af0;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 44px;
+  }
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -4,26 +4,23 @@ $breakpoints: (
   lg: 1024px,
 );
 
+//Mixin para media query
+//Mixin para media query
 @mixin media-up($breakpoint) {
   @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
+//Mixin para transiciones
+//Mixin para transiciones
 @mixin transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-@mixin scale90 {
-  transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
-}
-
+// Mixin de botón de inicio
 @mixin button($border-radius: 0.5rem) {
   background-color: #347af0;
   cursor: pointer;
@@ -37,7 +34,11 @@ $breakpoints: (
   @include transition-all;
 
   &:active {
-    @include scale90();
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
   }
 
   &:hover {
@@ -49,11 +50,15 @@ $breakpoints: (
   }
 }
 
+// Mixin para agregar sombras
+// Mixin para agregar sombras
 @mixin dropShadowMd {
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
     drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
+// Mixin para Inputs
+// Mixin para Inputs
 @mixin formInputs($overflowY: scroll) {
   display: flex;
   flex-direction: column;
@@ -119,5 +124,42 @@ $breakpoints: (
     border-right-width: calc(100vw + 100vh);
     /* inherit border-color to inherit transitions */
     border-color: inherit;
+  }
+}
+
+@mixin container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  max-width: 1024px;
+  margin: auto;
+}
+
+//Card styles
+$card-levels: (
+  base: #ffd078,
+  gold: #daa520,
+  platinum: #e5e4e2,
+  black: #1d1d1d,
+);
+
+$card-brands: (
+  visa: url("../public/img/visa.png"),
+  mc: url("../public/img/mc.png"),
+);
+
+@mixin card($card-brand) {
+  @include dropShadowMd();
+  min-width: 288px;
+  height: 170px;
+  left: 24px;
+  top: 195px;
+  background: #fbcd77;
+  border-radius: 15px;
+  display: flex;
+  p {
+    align-self: flex-end;
+    margin-bottom: 15px;
+    margin-left: 5%;
   }
 }

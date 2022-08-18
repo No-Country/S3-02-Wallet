@@ -1,11 +1,14 @@
+// import { useState } from "react";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
-// import { useState } from "react";
+
+import { motion } from "framer-motion";
+// import { useSelector, useDispatch } from "react-redux";
+
 // import { addUser } from "../store/usersSlice";
 // import { increment } from "../store/countSlice";
-// import { useSelector, useDispatch } from "react-redux";
 import styles from "../styles/index.module.scss";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();
@@ -24,24 +27,23 @@ export default function Home() {
 
   return (
     <motion.div
-      initial="pageInitial"
-      animate="pageAnimate"
-      exit="pageExit"
-      variants={{
-        pageInitial: {
-          opacity: 0,
-        },
-        pageAnimate: {
-          opacity: 1,
-        },
-        pageExit: {
-          // opacity: 0,
-          transition: {
-            ease: "easeInOut",
-            duration: 0.3,
-          },
-        },
-      }}
+    initial={{
+      opacity: 0,
+    }}
+    animate={{
+      opacity: 1,
+      transition: {
+        ease: "easeIn",
+        duration: 1.2,
+      },
+    }}
+    exit={{
+      opacity: 0,
+      transition: {
+        ease: "easeInOut",
+        duration: 0.8,
+      },
+    }}
       className={styles.container}
     >
       <Head>
@@ -105,12 +107,7 @@ export default function Home() {
         <motion.button
           initial="hidden"
           animate="visible"
-          whileFocus="click"
-          onTap={() =>
-            setTimeout(() => {
-              router.push("/login");
-            }, 1000)
-          }
+          onTap={() => router.push("/login")}
           variants={{
             hidden: {
               opacity: 0,
@@ -120,13 +117,6 @@ export default function Home() {
               transition: {
                 delay: 1,
                 duration: 0.8,
-              },
-            },
-            click: {
-              scale: 500,
-              transition: {
-                ease: "easeOut",
-                duration: 0.3,
               },
             },
           }}

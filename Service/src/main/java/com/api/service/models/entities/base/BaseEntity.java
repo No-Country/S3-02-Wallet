@@ -2,27 +2,24 @@
 package com.api.service.models.entities.base;
 
 import java.io.Serializable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.SQLDelete;
 
 @MappedSuperclass
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class BaseEntity implements Serializable{
+@Setter @Getter
+@NoArgsConstructor @AllArgsConstructor
+public abstract class BaseEntity implements Serializable{
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
-    private boolean delete = Boolean.FALSE;
+    private boolean softDelete;
     
 }

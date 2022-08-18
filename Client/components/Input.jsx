@@ -1,17 +1,40 @@
 import styles from "../styles/input.module.scss";
 
-const Input = ({ method, type, id, label, autocomplete }) => {
+const Input = ({
+  method,
+  type,
+  id,
+  label,
+  autocomplete,
+  required,
+  error,
+  value,
+  onChange,
+}) => {
   return (
     <div className={styles.form}>
       {method === "input" ? (
         <>
-          <input
-            type={type}
-            id={id}
-            className={styles.input}
-            placeholder=" "
-            autoComplete={autocomplete}
-          />
+          {required ? (
+            <input
+              type={type}
+              id={id}
+              className={error ? styles.inputError : styles.input}
+              placeholder=" "
+              autoComplete={autocomplete}
+              required
+              value={value}
+            />
+          ) : (
+            <input
+              type={type}
+              id={id}
+              className={error ? styles.inputError : styles.input}
+              placeholder=" "
+              autoComplete={autocomplete}
+              value={value}
+            />
+          )}
           <label htmlFor={id} className={styles.label}>
             {label}
           </label>

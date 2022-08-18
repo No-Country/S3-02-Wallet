@@ -1,14 +1,37 @@
-import { useRouter } from "next/router";
-import styles from "../styles/register.module.scss";
 import { useState } from "react";
+
+import { useRouter } from "next/router";
+
+import { motion } from "framer-motion";
 import { ArrowIosBack } from "@styled-icons/evaicons-solid/ArrowIosBack";
+
 import Input from "../components/Input";
+import styles from "../styles/register.module.scss";
 
 const Register = () => {
   const router = useRouter();
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          ease: "easeIn",
+          duration: 1.2,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          ease: "easeInOut",
+          duration: 0.8,
+        },
+      }}
+      className={styles.container}
+    >
       <span className={styles.arrow}>
         <ArrowIosBack width={"2.5rem"} onClick={() => router.back()} />
       </span>
@@ -76,7 +99,7 @@ const Register = () => {
 
         <button className={styles.button}>Sign Up</button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,32 +1,26 @@
-
-
 package com.api.service.models.entities;
 
+import com.api.service.enumerations.EnumType;
 import com.api.service.models.entities.base.BaseEntity;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
-public class Transfery extends BaseEntity{
+public class Transfery extends BaseEntity {
 
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy="uuid2")
-    private String id;
-    
-    private String amount;
-    private Date date; 
-    private String idTransmitter; 
-    private String idReceiver;
-    private Boolean condition; 
-    private EnumType type; 
-    
-    @ManyToOne
-    private Client client;
+    private Double amount;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date date;
+    private Boolean condition;
+    private EnumType type;
+
+    @OneToOne
+    private Client clientSender;      
+    @OneToOne
+    private Client clientReceiver;
 }

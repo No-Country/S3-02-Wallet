@@ -1,23 +1,55 @@
-import { signOut } from "next-auth/react";
 import { getSession } from "next-auth/react";
 
+import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+
+import Header from "../components/Header/Header";
+import Balance from "../components/Balance/Balance";
+import CardSelector from "../components/CardSelector";
+import { Footer } from "../components/Footer";
+import { setOpen } from "../store/dropdownSlice";
+import styles from "../styles/home.module.scss";
+import MiddleMenu from "../components/MiddleMenu/MiddleMenu";
+
 export default function Home({ user }) {
+  const dispatch = useDispatch();
+
   return (
-    <div
-      style={{
-        display: "grid",
-        placeContent: "center",
-        placeItems: "center",
-        gap: "1rem",
+    <motion.div
+      initial={{
+        opacity: 0,
       }}
+      animate={{
+        opacity: 1,
+        transition: {
+          ease: "easeIn",
+          duration: 1.2,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          ease: "easeInOut",
+          duration: 0.8,
+        },
+      }}
+      className={styles.container}
+      onClick={() => dispatch(setOpen(false))}
     >
-      <h3>Signed in as {user.name}</h3>
-      <h3>Your email is {user.email}</h3>
-      <img src={user.image} alt={user.name} referrerPolicy="no-referrer" />
-      <button onClick={() => signOut({ callbackUrl: "/login" })}>
-        Sign out
-      </button>
-    </div>
+      <Header user={user} />
+      <div className={styles.content}>
+        <Balance />
+        <MiddleMenu />
+        <CardSelector
+          cards={[
+            { provider: "visa", level: "base", number: 8888777766665555 },
+            { provider: "mc", level: "black", number: 8888777766668555 },
+            { provider: "mc", level: "platinum", number: 8888777766664555 },
+          ]}
+        />
+      </div>
+      <Footer />
+    </motion.div>
   );
 }
 
