@@ -1,14 +1,13 @@
-
-
 package com.api.service.models.entities;
+
 
 import com.api.service.models.entities.base.BaseEntity;
 import com.api.service.security.jwt.Role;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 
 @Entity
 @Builder
