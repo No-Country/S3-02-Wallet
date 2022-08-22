@@ -8,6 +8,7 @@ import Balance from "../components/Balance/Balance";
 import CardSelector from "../components/CardSelector";
 import { Footer } from "../components/Footer";
 import { setOpen } from "../store/dropdownSlice";
+import { setShowProfile } from "../store/profileSlice";
 import styles from "../styles/home.module.scss";
 import MiddleMenu from "../components/MiddleMenu/MiddleMenu";
 
@@ -34,7 +35,9 @@ export default function Home({ user }) {
         },
       }}
       className={styles.container}
-      onClick={() => dispatch(setOpen(false))}
+      onClick={() =>
+        dispatch(setOpen(false)) && dispatch(setShowProfile(false))
+      }
     >
       <Header user={user} />
       <div className={styles.content}>

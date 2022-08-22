@@ -13,6 +13,7 @@ import storage from "./sync_storage";
 import users from "./usersSlice";
 import counter from "./countSlice";
 import dropdown from "./dropdownSlice";
+import profile from "./profileSlice";
 
 const { persistStore, persistReducer } = require("redux-persist");
 
@@ -20,12 +21,14 @@ const combinedReducers = combineReducers({
   counter,
   users,
   dropdown,
+  profile,
 });
 
 const persistConfig = {
   key: "root",
   version: 1,
-  whitelist: ["counter", "users", "dropdown"],
+  whitelist: ["counter", "users"],
+  blacklist: ["dropdown", "profile"],
   storage,
 };
 
