@@ -45,51 +45,51 @@ const Register = () => {
             type="text"
             id="name"
             label="Name"
-            autocomplete="given-name"
+            autoComplete="given-name"
           />
           <Input
             method="input"
             type="text"
             id="lastName"
             label="Last Name"
-            autocomplete="family-name"
+            autoComplete="family-name"
           />
           <Input
             method="input"
             type="email"
             id="email"
             label="Email"
-            autocomplete="email"
+            autoComplete="email"
           />
           <Input
             method="input"
             type="password"
             id="password"
             label="Password"
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
           <Input
             method="input"
             type="password"
             id="repeatPassword"
             label="Repeat Password"
-            autocomplete="new-password"
+            autoComplete="new-password"
           />
           <Input
             method="input"
             type="number"
             id="DNI"
             label="DNI"
-            autocomplete="dni"
+            autoComplete="dni"
           />
           <Input
             method="input"
             type="date"
             id="birthDay"
             label="Birth Day"
-            autocomplete="bday"
+            autoComplete="bday"
           />
-          <Input type="text" id="sex" label="Sex" autocomplete="sex" />
+          <Input type="text" id="sex" label="Sex" autoComplete="sex" />
         </form>
 
         <span className={styles.checkbox}>

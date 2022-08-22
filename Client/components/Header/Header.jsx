@@ -14,10 +14,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 import styles from "../../styles/header.module.scss";
 import { setOpen } from "../../store/dropdownSlice";
+import { setShowProfile } from "../../store/profileSlice";
+import Profile from "../Profile/Profile";
 
 const Header = ({ user }) => {
   const dispatch = useDispatch();
   const open = useSelector((state) => state.dropdown.open);
+  const profile = useSelector((state) => state.profile.open);
 
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
@@ -42,6 +45,7 @@ const Header = ({ user }) => {
           <AnimatePresence>{open && <DropdownMenu />}</AnimatePresence>
         </ul>
       </div>
+      <AnimatePresence>{profile && <Profile user={user} />}</AnimatePresence>
     </div>
   );
 };
@@ -117,7 +121,13 @@ function DropdownMenu() {
           <DropdownItem leftIcon={<Notifications />}>
             Notifications
           </DropdownItem>
-          <DropdownItem leftIcon={<Person />}>My Profile</DropdownItem>
+          <span
+            onClick={() =>
+              dispatch(setShowProfile(true)) && dispatch(setOpen(false))
+            }
+          >
+            <DropdownItem leftIcon={<Person />}>My Profile</DropdownItem>
+          </span>
           <DropdownItem
             leftIcon={<Settings />}
             rightIcon={<IosArrowRight />}
