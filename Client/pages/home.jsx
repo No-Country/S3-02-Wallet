@@ -11,6 +11,7 @@ import { setOpen } from "../store/dropdownSlice";
 import { setShowProfile } from "../store/profileSlice";
 import styles from "../styles/home.module.scss";
 import MiddleMenu from "../components/MiddleMenu/MiddleMenu";
+import Offers from "../components/Offers/Offers";
 
 export default function Home({ user }) {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ export default function Home({ user }) {
             { provider: "mc", level: "platinum", number: 8888777766664555 },
           ]}
         />
+        <Offers />
       </div>
       <Footer />
     </motion.div>

@@ -1,0 +1,52 @@
+@import "../../styles/mixins.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  margin: 0 1rem;
+  background: #ececec;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.content {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@mixin offer($bc: #18a0fb) {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: $bc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  h3 {
+    margin-left: 0.5rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    width: 8rem;
+    color: #ffffff;
+    text-align: left;
+  }
+}
+
+.offer_1 {
+  @include offer(#32283c);
+}
+
+.offer_2 {
+  @include offer(#18a0fb);
+}
