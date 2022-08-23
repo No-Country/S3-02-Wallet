@@ -1,0 +1,118 @@
+@import "../../styles/mixins.scss";
+
+.addDesktop {
+  display: none;
+
+  @include media-up(md) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    button {
+      cursor: pointer;
+      background: #347af0;
+      border-radius: 10px;
+      width: 4rem;
+      height: 2rem;
+      border: none;
+      color: white;
+
+      @include transition-all();
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+
+      &:active {
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.limit {
+  margin-top: 1rem;
+  position: relative;
+  background: #347af0;
+  border-radius: 10px;
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    color: #ffffff;
+
+    h4 {
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    color: white;
+    width: 1.5rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+}
+
+.add {
+  position: absolute;
+  bottom: 6rem;
+  right: 1rem;
+  cursor: pointer;
+  @include transition-all(300ms);
+
+  @include media-up(md) {
+    display: none;
+  }
+
+  svg {
+    width: 4rem;
+    color: #347af0;
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: rotate(0.5turn);
+    -webkit-transform: rotate(0.5turn);
+    -moz-transform: rotate(0.5turn);
+    -ms-transform: rotate(0.5turn);
+    -o-transform: rotate(0.5turn);
+  }
+}

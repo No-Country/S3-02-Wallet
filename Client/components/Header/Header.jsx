@@ -12,7 +12,7 @@ import { Notifications } from "@styled-icons/material-outlined/Notifications";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 
-import styles from "../../styles/header.module.scss";
+import styles from "./Header.module.scss";
 import { setOpen } from "../../store/dropdownSlice";
 import { setShowProfile } from "../../store/profileSlice";
 import Profile from "../Profile/Profile";
@@ -23,7 +23,27 @@ const Header = ({ user }) => {
   const profile = useSelector((state) => state.profile.open);
 
   return (
-    <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          ease: "easeIn",
+          duration: 0.3,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          ease: "easeOut",
+          duration: 0.3,
+        },
+      }}
+      className={styles.container}
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className={styles.welcomeText}>
         <h2>Hey {user.name.split(" ")[0]}!</h2>
         <p>Welcome back</p>
@@ -46,7 +66,7 @@ const Header = ({ user }) => {
         </ul>
       </div>
       <AnimatePresence>{profile && <Profile user={user} />}</AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
