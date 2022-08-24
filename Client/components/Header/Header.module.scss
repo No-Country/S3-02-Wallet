@@ -1,11 +1,13 @@
 $button-size: calc(60px * 0.5);
 
 .container {
+  height: 4.5rem;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  background-color: #f2f3f6;
 
   ul {
     list-style: none;

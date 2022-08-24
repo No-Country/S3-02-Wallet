@@ -9,23 +9,26 @@ import HeaderAlt from "../components/HeaderAlt/HeaderAlt";
 import { Footer } from "../components/Footer/Footer";
 import styles from "../styles/home.module.scss";
 import CardsPage from "../components/CardsPage/CardsPage";
+import Analytics from "../components/Analytics/Analytics";
 
 export default function HomePage({ user }) {
   const section = useSelector((state) => state.footer.section);
 
   return (
-    <div className={styles.pageContainer}>
+    <div className="Prueba">
       <AnimatePresence>
         {section === "home" ? <Header user={user} /> : <HeaderAlt />}
       </AnimatePresence>
-      <AnimatePresence>
-        {section === "home" && <Home user={user} />}
-      </AnimatePresence>
-      <AnimatePresence>{section === "cards" && <CardsPage />}</AnimatePresence>
-      {/* <AnimatePresence>{section === "transfer" && null}</AnimatePresence> */}
-      {/* <AnimatePresence>{section === "analytics" && null}</AnimatePresence> */}
-      {/* <AnimatePresence>{section === "services" && null}</AnimatePresence> */}
+      <div className={styles.pageContainer}>
+        <AnimatePresence>
+          {section === "home" && <Home user={user} />}
+        </AnimatePresence>
+        <AnimatePresence>{section === "cards" && <CardsPage />}</AnimatePresence>
+        {/* <AnimatePresence>{section === "transfer" && null}</AnimatePresence> */}
+        <AnimatePresence>{section === "analytics" && <Analytics />}</AnimatePresence>
+        {/* <AnimatePresence>{section === "services" && null}</AnimatePresence> */}
 
+      </div>
       <Footer />
     </div>
   );
