@@ -40,7 +40,7 @@ const Services = () => {
             <Image
               src="/img/Logo Services/Visa.jpg"
               height="100px"
-              width="100px"
+              width="80px"
             />
             <h4>VISA</h4>
           </div>
@@ -48,7 +48,7 @@ const Services = () => {
             <Image
               src="/img/Logo Services/MasterCard.jpg"
               height="100px"
-              width="100px"
+              width="80px"
             />
             <h4>MasterCard</h4>
           </div>
@@ -100,7 +100,7 @@ const Services = () => {
             <Image
               src="/img/Logo Services/Jet Smart.jpg"
               height="100px"
-              width="100px"
+              width="80px"
             />
             <h4>Jet Smart</h4>
           </div>
@@ -108,7 +108,7 @@ const Services = () => {
             <Image
               src="/img/Logo Services/Flybondi.jpg"
               height="100px"
-              width="100px"
+              width="80px"
             />
             <h4>Flybondi</h4>
           </div>
@@ -122,7 +122,7 @@ const Services = () => {
             <Image
               src="/img/Logo Services/Uber.jpg"
               height="100px"
-              width="100px"
+              width="80px"
             />
             <h4>Uber</h4>
           </div>

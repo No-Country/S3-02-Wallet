@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .container {
   overflow: hidden;
   display: flex;
@@ -6,6 +8,8 @@
   width: 100%;
   padding-top: 1rem;
   background-color: #f2f3f6;
+  max-width: 1024px;
+  margin: auto;
 
   svg {
     width: 2rem;

@@ -57,33 +57,8 @@ $breakpoints: (
     drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
-// Mixin para Inputs
-// Mixin para Inputs
-@mixin formInputs($overflowY: scroll) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  gap: 4rem;
-  overflow-y: $overflowY;
-  overflow-x: hidden;
-  border-color: rgba(0, 0, 0, 0);
-  transition: border-color 0.75s linear;
-
-  @include media-up(lg) {
-    display: grid;
-    place-content: center;
-    place-items: center;
-    overflow-y: auto;
-    gap: 4.5rem;
-    grid-template-columns: 1fr 1fr;
-    width: 50rem;
-  }
-
-  &:hover {
-    border-color: rgba(0, 0, 0, 0.1);
-  }
-
+//Mixin Scrollbar
+@mixin scrollbar {
   &::-webkit-scrollbar {
     width: 10px;
     /* add border to act as background-color */
@@ -124,6 +99,34 @@ $breakpoints: (
     border-right-width: calc(100vw + 100vh);
     /* inherit border-color to inherit transitions */
     border-color: inherit;
+  }
+}
+
+// Mixin para Inputs
+// Mixin para Inputs
+@mixin formInputs($overflowY: scroll) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 4rem;
+  overflow-y: $overflowY;
+  overflow-x: hidden;
+  border-color: rgba(0, 0, 0, 0);
+  transition: border-color 0.75s linear;
+
+  @include media-up(lg) {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    overflow-y: auto;
+    gap: 4.5rem;
+    grid-template-columns: 1fr 1fr;
+    width: 50rem;
+  }
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.1);
   }
 }
 
