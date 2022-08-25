@@ -1,0 +1,55 @@
+.container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  height: 82%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.category {
+  &:first-of-type {
+    margin-top: 22rem;
+  }
+
+  h4 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}
+
+.services {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.serviceItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FBFBFB;
+  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 100px;
+  max-width: 100px;
+  height: 111px;
+  max-height: 111px;
+
+  img {
+    object-fit: contain;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
