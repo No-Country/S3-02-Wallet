@@ -8,6 +8,7 @@ import { setOpen } from "../../store/dropdownSlice";
 import { setShowProfile } from "../../store/profileSlice";
 import MiddleMenu from "../MiddleMenu/MiddleMenu";
 import Offers from "../Offers/Offers";
+import TransactionsContainer from "../TransactionsContainer/TransactionsContainer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const Home = () => {
             { provider: "mc", level: "platinum", number: 8888777766664555 },
           ]}
         />
+        <TransactionsContainer qTransactions={3} background={true}/>
         <Offers />
       </div>
     </motion.div>

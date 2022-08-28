@@ -1,0 +1,92 @@
+@import "../../styles/mixins.scss";
+
+.container {
+  @include container();
+  background-color: #f2f3f6;
+
+  height: 90vh;
+  padding-bottom: 2rem;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.filterSelector {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+  .filter{
+    width: 67px;
+    height: 27px;
+    p {
+      font-family: "Nunito";
+      font-style: normal;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.5rem;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .filterActive{
+    width: 67px;
+    height: 25px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #347af0;
+    border: 1px solid #0c3a94;
+    /* SoftShadow */
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    p {
+      font-family: "Nunito";
+      font-style: normal;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4rem;
+      color: black
+    }
+  }
+}
+
+.resume {
+  width: 100%;
+  margin: 35px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.month {
+  display: flex;
+  width: 144px;
+  height: 64px;
+  left: 237px;
+  top: 135px;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    #347af0;
+  font-size: small;
+  font-weight: 600;
+  padding-top: 5px;
+  /* SoftShadow */
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 5px;
+
+  span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1.5rem;
+  }
+}

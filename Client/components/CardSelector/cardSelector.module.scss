@@ -20,6 +20,7 @@
 .snap {
   scroll-snap-type: x;
   padding: 15px 0 15px 30px;
+  margin: 0 1rem;
   gap: 2rem;
   display: flex;
   :last-child {

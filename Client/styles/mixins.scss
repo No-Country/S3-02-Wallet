@@ -132,8 +132,9 @@ $breakpoints: (
 
 @mixin container {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height:100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   max-width: 1024px;
   margin: auto;
 }
