@@ -5,7 +5,7 @@
   background-color: #f2f3f6;
 
   height: 90vh;
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .content {
@@ -13,10 +13,42 @@
   width: 100%;
 }
 
-// .chart{
-// width: 414px;
-// height: 286px;
-// }
+.filterSelector {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+  .filter{
+    width: 67px;
+    height: 27px;
+    p {
+      font-family: "Nunito";
+      font-style: normal;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.5rem;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .filterActive{
+    width: 67px;
+    height: 25px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #347af0;
+    border: 1px solid #0c3a94;
+    /* SoftShadow */
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    p {
+      font-family: "Nunito";
+      font-style: normal;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4rem;
+      color: black
+    }
+  }
+}
+
 .resume {
   width: 100%;
   margin: 35px 0;
@@ -56,18 +88,5 @@
     justify-content: space-around;
     align-items: center;
     padding: 0 1.5rem;
-  }
-}
-
-.filterSelector {
-  width: 100%;
-  .filter {
-    width: 67px;
-    height: 27px;
-    background: rgba(0, 91, 212, 0.5);
-    border: 1px solid #0c3a94;
-    /* SoftShadow */
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
   }
 }

@@ -4,6 +4,21 @@ const Transaction = (props) => {
 
   const transaction = props.transaction
 
+  const shortDate = new Intl.DateTimeFormat("fr", {
+    dateStyle: "short"
+  });
+
+
+  const toMonthName = (monthNumber) => {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+    return date.toLocaleString("en-US", {
+      month: "short",
+    });
+  };
+
+  let date = `${transaction.date.getDate()} ${toMonthName(transaction.date.getMonth())} ${transaction.date.getFullYear()}`
+
   const icon = "/img/" + (transaction.category).toLowerCase() + '.svg';
   return (
     <div className={styles.transaction}>
@@ -22,7 +37,7 @@ const Transaction = (props) => {
           <p className={styles.amount}> ${transaction.amount}</p>
         }
 
-        <p className={styles.date}>{transaction.date}</p>
+        <p className={styles.date}>{date}</p>
       </div>
     </div>
 
