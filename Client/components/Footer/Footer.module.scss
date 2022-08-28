@@ -8,6 +8,8 @@
   align-items: center;
   width: 100%;
   background-color: #ffff;
+  background: #ffff;
+
 
   @include media-up(md) {
     display: none;

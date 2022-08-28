@@ -8,6 +8,8 @@ $button-size: calc(60px * 0.5);
   width: 100%;
   padding-top: 0.5rem;
   background-color: #f2f3f6;
+  max-width: 1024px;
+  margin: auto;
 
   ul {
     list-style: none;

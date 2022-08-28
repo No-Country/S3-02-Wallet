@@ -1,11 +1,16 @@
+@import "../../styles/mixins.scss";
+
 .container {
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: #f2f3f6;
   height: 4.5rem;
+  padding-top: 1rem;
+  background-color: #f2f3f6;
+  max-width: 1024px;
+  margin: auto;
 
   svg {
     width: 2rem;
