@@ -15,6 +15,7 @@ import counter from "./countSlice";
 import dropdown from "./dropdownSlice";
 import profile from "./profileSlice";
 import footer from "./footerSlice";
+import paymentDetails from "./paySlice";
 
 const { persistStore, persistReducer } = require("redux-persist");
 
@@ -24,13 +25,14 @@ const combinedReducers = combineReducers({
   dropdown,
   profile,
   footer,
+  paymentDetails,
 });
 
 const persistConfig = {
   key: "root",
   version: 1,
   whitelist: ["counter", "users"],
-  blacklist: ["dropdown", "profile", "footer"],
+  blacklist: ["dropdown", "profile", "footer", "paymentDetails"],
   storage,
 };
 
