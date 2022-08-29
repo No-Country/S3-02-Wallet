@@ -220,8 +220,8 @@ const Pay = () => {
           </span>
 
           <span className={styles.numpadRow}>
-            <div onClick={() => setAmount(amount + ",")} className={styles.key}>
-              ,
+            <div onClick={() => setAmount(amount + ".")} className={styles.key}>
+              .
             </div>
             <div
               onClick={() => setAmount(amount === "0" ? "0" : amount + "0")}
