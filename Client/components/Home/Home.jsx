@@ -47,9 +47,30 @@ const Home = () => {
             { provider: "mc", level: "platinum", number: 8888777766664555 },
           ]}
         />
-        <TransactionsContainer qTransactions={3} background={true}/>
+        <TransactionsContainer qTransactions={3} background={true} />
         <Offers />
       </div>
+
+
+      <div className={styles.contentMd}>
+        <div className={styles.Header}>
+          <Balance />
+        </div>
+        <div className={styles.CardsPromo}>
+          <CardSelector
+            cards={[
+              { provider: "visa", level: "base", number: 8888777766665555 },
+              { provider: "mc", level: "black", number: 8888777766668555 },
+              { provider: "mc", level: "platinum", number: 8888777766664555 },
+            ]}
+          />
+          <Offers />
+        </div>
+        <div className={styles.Transactions}>
+          <MiddleMenu />
+          <TransactionsContainer qTransactions={6} background={false} />
+        </div>
+        </div>
     </motion.div>
   );
 };

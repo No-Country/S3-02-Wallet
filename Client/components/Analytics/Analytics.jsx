@@ -10,7 +10,6 @@ import RedArrow from "../../public/img/redArrow.svg";
 import { useEffect } from "react";
 
 
-
 const getWeeksInMonth = (year, month) => {
   const weeks = [],
     firstDate = new Date(year, month - 1, 1),
@@ -39,19 +38,17 @@ const toStringWeek = (week) => {
     })}`)
 }
 
-const Analytics = ({ user }) => {
+const toPositive = (x) => { return (x * -1) };
+
+const Analytics = () => {
 
   const [selectedFilter, setSelectedFilter] = useState("year");
   const [chartData, setChartData] = useState({ labels: [], data: [] });
-
-  const shortDate = new Intl.DateTimeFormat("fr", {
-    dateStyle: "short"
-  });
   const today = new Date()
   const actualMonth = today.getMonth() + 1
   const actualYear = today.getFullYear()
   const actualDay = today.getDate()
-  // const today = shortDate.format(new Date())
+
   const toMonthName = (monthNumber) => {
     const date = today;
     date.setMonth(monthNumber - 1);
@@ -128,15 +125,15 @@ const Analytics = ({ user }) => {
 
   let expensesByDay = []
 
-  transactions.map((transaction) => {
-    if (transaction.date.getMonth() + 1 === actualMonth && transaction.date.getFullYear() === actualYear) {
 
-      weeksOfMonths.map((week) => {
-        if (actualDay >= week[0] && actualDay <= week[week.length - 1]) {
-          expensesByDay[transaction.date.getDay()] = { "amount": transaction.amount, "day": transaction.date.toLocaleString('en-us', { weekday: 'short' }) }
-        }
-      })
-    }
+  weeksOfMonths.map((week) => {         
+    if (actualDay >= week[0] && actualDay <= week[week.length - 1]) {
+           transactions.map((transaction) => {
+             if (transaction.date.getDate() >= week[0] && transaction.date.getDate() <= week[week.length - 1]) {
+               expensesByDay[transaction.date.getDay()] = { "amount": transaction.amount, "day": transaction.date.toLocaleString('en-us', { weekday: 'short' }) }
+          }
+          })
+      }
   })
 
 
@@ -164,7 +161,7 @@ const Analytics = ({ user }) => {
     labels: chartData.labels.map((label) => label), //hacer un map desde la info
     datasets: [
       {
-        label: "Expenses",
+        label: "Balance",
         data: chartData.data.filter(Boolean).map((expense) => expense),
         backgroundColor: "rgb(24, 160, 251)",
         borderColor: "rgb(24, 160, 251)",
@@ -181,24 +178,35 @@ const Analytics = ({ user }) => {
   return (
     <div className={styles.container}>
       <div className={styles.resume}>
+        <h3>Balance</h3>
+        <div className={styles.resumeBoxes}>
         <div className={styles.month}>
           <p>Last Month</p>
           <span>
-            {amountLastMonth <= amountTwoMonth ? <GreenArrow /> : <RedArrow />}
-            -$ {amountLastMonth}
+            {amountLastMonth >= amountTwoMonth ? <GreenArrow /> : <RedArrow />}
+            {amountCurrentMonth < 0 ? 
+              <>$ {amountLastMonth}</>
+              : 
+              <>-$ {toPositive(amountLastMonth)}</> 
+            }
           </span>
         </div>
         <div className={styles.month}>
           <p>Current Month</p>
           <span>
-            {amountCurrentMonth <= amountLastMonth ? (
+            {amountCurrentMonth >= amountLastMonth ? (
               <GreenArrow />
-            ) : (
-              <RedArrow />
-            )}
-            -$ {amountCurrentMonth}
+              ) : (
+                <RedArrow />
+                )}
+            {amountCurrentMonth < 0 ? 
+              <>-$ {toPositive(amountCurrentMonth)}</> 
+              : 
+              <>$ {amountCurrentMonth}</>
+            }
           </span>
         </div>
+            </div>
       </div>
       <div className={styles.filterSelector}>
         <div
@@ -229,7 +237,9 @@ const Analytics = ({ user }) => {
       <div className={styles.chart}>
         <Chart chartData={balanceData} />
       </div>
-      <TransactionsContainer qTransactions={0} background={false} />
+      <div className={styles.transactions}>
+        <TransactionsContainer qTransactions={0} background={false} />
+      </div>
     </div>
   );
 };

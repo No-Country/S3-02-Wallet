@@ -4,18 +4,15 @@ const Transaction = (props) => {
 
   const transaction = props.transaction
 
-  const shortDate = new Intl.DateTimeFormat("fr", {
-    dateStyle: "short"
-  });
-
-
   const toMonthName = (monthNumber) => {
     const date = new Date();
-    date.setMonth(monthNumber - 1);
+    date.setMonth(monthNumber);
     return date.toLocaleString("en-US", {
       month: "short",
     });
   };
+
+  const toPositive = (x) => { return (x * -1) };
 
   let date = `${transaction.date.getDate()} ${toMonthName(transaction.date.getMonth())} ${transaction.date.getFullYear()}`
 
@@ -31,9 +28,9 @@ const Transaction = (props) => {
       </div>
       <div className={styles.transactionDetail}>
 
-        { transaction.type === "expense" ?
-          <p className={styles.amount}>- ${transaction.amount}</p>
-        :
+        {transaction.type === "expense" ?
+          <p className={styles.amount}>- ${toPositive(transaction.amount)}</p>
+          :
           <p className={styles.amount}> ${transaction.amount}</p>
         }
 

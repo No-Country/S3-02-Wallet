@@ -12,12 +12,13 @@
   border-radius: 10px;
 
   @include media-up(md){
-    margin: 0 10rem;
+    margin: 0 4rem;
+    height: 40%;
   }
 
-  @include media-up(lg){
-    margin: 0 15rem;
-  }
+  // @include media-up(lg){
+  //   margin: 0 15rem;
+  // }
 }
 
 .content {

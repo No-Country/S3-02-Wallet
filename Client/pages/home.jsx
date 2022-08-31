@@ -17,19 +17,21 @@ export default function HomePage({ user }) {
 
   return (
     <>
-      <AnimatePresence>{section === "home" ? <Header user={user} /> : <HeaderAlt />}</AnimatePresence>
       <div className={styles.pageContainer}>
+        <AnimatePresence>{section === "home" ? <Header user={user} /> : <HeaderAlt />}</AnimatePresence>
         <AnimatePresence>{section === "home" && <Home user={user} />}</AnimatePresence>
         <AnimatePresence>{section === "cards" && <CardsPage />}</AnimatePresence>
         {/* <AnimatePresence>{section === "transfer" && null}</AnimatePresence> */}
         <AnimatePresence>{section === "analytics" && <Analytics />}</AnimatePresence>
         <AnimatePresence>{section === "services" && <Services />}</AnimatePresence>
+        <Footer />
       </div>
-      <Footer />
     </>
 
   );
 }
+
+
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);

@@ -11,7 +11,8 @@ body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: url("../public/img/Background.jpg"); */
+  background: url("../public/img/Background.jpg");
+  user-select: none;
 }
 
 .spinner-wrapper {
