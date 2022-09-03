@@ -33,8 +33,6 @@ export default function HomePage({ user }) {
   );
 }
 
-
-
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 

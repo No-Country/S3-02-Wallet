@@ -3,7 +3,7 @@ const Usuario = {
     cards:[
         { provider: "visa", level: "base", number: 8888777766665555},
         { provider: "mc", level: "black", number: 8888777766668555 },
-       { provider: "mc", level: "platinum", number: 8888777766664555 },
+        { provider: "mc", level: "platinum", number: 8888777766664555 }
     ],
     transactions: [{
         "title": "Hoyts Cinema",

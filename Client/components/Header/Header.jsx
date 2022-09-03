@@ -138,9 +138,9 @@ function DropdownMenu() {
         onEnter={calcHeight}
       >
         <div className={styles.menu}>
-          <DropdownItem leftIcon={<Notifications />}>
+          {/* <DropdownItem leftIcon={<Notifications />}>
             Notifications
-          </DropdownItem>
+          </DropdownItem> */}
           <span
             onClick={() =>
               dispatch(setShowProfile(true)) && dispatch(setOpen(false))
@@ -148,13 +148,13 @@ function DropdownMenu() {
           >
             <DropdownItem leftIcon={<Person />}>My Profile</DropdownItem>
           </span>
-          <DropdownItem
+          {/* <DropdownItem
             leftIcon={<Settings />}
             rightIcon={<IosArrowRight />}
             goToMenu="settings"
           >
             Settings
-          </DropdownItem>
+          </DropdownItem> */}
           <span
             onClick={() =>
               dispatch(setOpen(false)) && signOut({ callbackUrl: "/login" })

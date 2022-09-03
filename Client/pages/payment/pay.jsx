@@ -13,6 +13,7 @@ import { setPaymentDetails } from "../../store/paySlice";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useCallback } from "react";
+import Usuario from "../../TestData";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -134,7 +135,7 @@ useEffect(() => {
 
         <div className={styles.text}>
           <h3>{PaymentDetails.name}</h3>
-          <p>Balance: {formatter.format(50000)}</p>
+          <p>Balance: {formatter.format(Usuario.balance)}</p>
         </div>
 
         <div className={styles.amount}>

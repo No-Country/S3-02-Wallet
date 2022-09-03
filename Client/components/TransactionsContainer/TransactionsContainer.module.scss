@@ -44,9 +44,10 @@
   margin: 5px auto;
 
   @include media-up(md) {
-    max-height: 430px;
+    max-height: 440px;
     .transactions{
       max-height: 400px;
+      overflow: auto;
       width: 105%;
       padding-right: 5%;
     }}
