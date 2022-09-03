@@ -2,16 +2,16 @@ import React from 'react'
 import Transaction from "../Transaction/Transaction"
 
 import styles from "./TransactionsContainer.module.scss"
-import transactions from "../../TestData"
+import Usuario from "../../TestData"
 
 function TransactionsContainer(props) {
-
+    const transactions = Usuario.transactions
+    const sortedTransactions = transactions.sort((a, b) => b.date - a.date)
 
     let transactionsToShow = props.qTransactions;
     if (props.qTransactions === 0) {
         transactionsToShow = transactions.length
     }
-
 
     return (
         <div className={props.background ? styles.transactionsContainerHome : styles.transactionsContainer} >
@@ -24,7 +24,7 @@ function TransactionsContainer(props) {
                 </select> */}
             </div>
             <div className={styles.transactions}>
-            {transactions.length != 0 ? transactions.slice(0, transactionsToShow).map((transaction) => <><Transaction transaction={transaction} key={transaction.id} /><hr /></>) : <p>Loading...</p>
+            {transactions.length != 0 ? sortedTransactions.slice(0, transactionsToShow).map((transaction) => <Transaction transaction={transaction} key={transaction.id} />) : <p>Loading...</p>
             }
             </div>
         </div>

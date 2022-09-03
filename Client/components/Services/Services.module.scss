@@ -16,6 +16,15 @@
 }
 
 .category {
+
+  &:first-of-type {
+    margin-top: 18rem;
+      @include media-up(md) {
+      margin-top: 25rem;
+    }
+ 
+  }
+
   &:last-of-type {
     margin-bottom: 0.5rem;
   }

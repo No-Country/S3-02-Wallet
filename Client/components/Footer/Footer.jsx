@@ -28,13 +28,13 @@ export const Footer = () => {
         <CreditCard className={styles.icon} />
         <p>Cards</p>
       </span>
-      <span
+      {/* <span
         className={section === "transfer" ? styles.active : styles.footerIcon}
         onClick={() => dispatch(setSection("transfer"))}
       >
         <Transfer className={styles.icon} />
         <p>Transfer</p>
-      </span>
+      </span> */}
       <span
         className={section === "analytics" ? styles.active : styles.footerIcon}
         onClick={() => dispatch(setSection("analytics"))}

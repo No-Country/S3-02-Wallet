@@ -1,32 +1,111 @@
 @import "../../styles/mixins.scss";
 
 .selector {
-  max-width: 100vw;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  &.proximity {
-    scroll-snap-type: x proximity;
+  @include media-down(md) {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    &.proximity {
+      scroll-snap-type: x proximity;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    .snap {
+      scroll-snap-type: x;
+      padding: 15px 0 15px 30px;
+      margin: 0 1rem;
+      gap: 2rem;
+      display: flex;
+      :last-child {
+        margin-right: 1.5rem;
+      }
+      div {
+        scroll-snap-align: center;
+      }
+    }
   }
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+    @include media-up(md){
+      margin-bottom: 40px;
+    display: flex;
+    height: 290px;
+    justify-content: center;
+    align-items: flex-end;
+      .snap{  
+        top: 95px;
+        display: flex;
+        justify-content: center;
+        margin-left: 20px;
+      }
+
+        
+.card {
+  flex-shrink: 0;
+  z-index: 1;
+  transition: 0.4s ease-out;
+  position: relative;
+
 }
 
-.snap {
-  scroll-snap-type: x;
-  padding: 15px 0 15px 30px;
-  margin: 0 1rem;
-  gap: 2rem;
-  display: flex;
-  :last-child {
-    margin-right: 1.5rem;
-  }
-  div {
-    scroll-snap-align: center;
-  }
+.card:first-child {
+  margin-left: -40px;
+  margin-top: -130px;
 }
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:not(:nth-child(3)):hover~.card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+/* .card:not(:first-child) { margin-left: -50px; }  */
+.card:nth-child(2) {
+  margin-left: -234px;
+  margin-top: -20px;
+  z-index: 1
+}
+
+.card:nth-child(3) {
+  margin-top: -70px;
+  margin-left: -230px;
+  z-index: 2
+}
+
+.card:nth-child(1) {
+  margin-top: 27px;
+  margin-left: 0px;
+  z-index: 0;
+}
+.card:nth-child(2):hover {
+  z-index:3;
+}
+
+
+.card:nth-child(1):hover {
+  z-index: 3;
+}
+
+    }
+
+
+
+}
+

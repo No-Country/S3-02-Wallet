@@ -1,12 +1,12 @@
 import { useState } from "react";
-
 import { EyeOutline } from "@styled-icons/evaicons-outline/EyeOutline";
 import { EyeOffOutline } from "@styled-icons/evaicons-outline/EyeOffOutline";
 import { Asterisk } from "@styled-icons/foundation/Asterisk";
-
 import styles from "./balance.module.scss";
+import Usuario from "../../TestData";
 
 const Balance = () => {
+
   const [show, setShow] = useState(true);
 
   const formatter = new Intl.NumberFormat("en-US", {
@@ -34,7 +34,7 @@ const Balance = () => {
 
       {show ? (
         <span className={styles.balance}>
-          <h3>{formatter.format(50000)}</h3>
+          <h3>{formatter.format(Usuario.balance)}</h3>
         </span>
       ) : (
         <span className={styles.balance}>

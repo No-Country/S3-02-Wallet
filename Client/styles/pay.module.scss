@@ -2,8 +2,19 @@
 
 .container {
   background: #347af0;
+  height: 100vh;
   @include container();
-
+  @include media-up(md) {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    overflow: none;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 1024px;
+    height: 730px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.5);
+  }
   .arrowIcon {
     color: white;
     width: 2rem;
@@ -13,6 +24,10 @@
 }
 
 .imageContainer {
+  margin-top: 5rem;
+  @include media-up(md){
+    margin-top: 0;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +167,7 @@
 }
 
 .numpad {
-  margin-top: 2rem;
+  margin-top: 5rem;
   display: grid;
   width: 100%;
   grid-template-columns: 3fr;
@@ -163,7 +178,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
-
+@include media-up(md){
+  visibility:hidden;
+  
+}
   .numpadRow {
     display: flex;
     align-items: center;

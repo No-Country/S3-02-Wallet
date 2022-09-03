@@ -12,6 +12,12 @@ $breakpoints: (
   }
 }
 
+@mixin media-down($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
 //Mixin para transiciones
 //Mixin para transiciones
 @mixin transition-all($duration: 150ms) {
@@ -50,7 +56,6 @@ $breakpoints: (
   }
 }
 
-// Mixin para agregar sombras
 // Mixin para agregar sombras
 @mixin dropShadowMd {
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
@@ -132,7 +137,7 @@ $breakpoints: (
 
 @mixin container {
   width: 100vw;
-  height:100vh;
+  // height:100vh;
   overflow-x: hidden;
   overflow-y: auto;
   max-width: 1024px;

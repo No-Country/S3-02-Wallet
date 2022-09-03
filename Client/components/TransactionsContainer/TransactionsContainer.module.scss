@@ -14,7 +14,8 @@
   margin: 24px auto;
   
   @include media-up(md) {
-    max-width: 60%;
+   overflow: hidden;
+   max-width: 60%;
   }
 
   hr{
@@ -43,9 +44,13 @@
   margin: 5px auto;
 
   @include media-up(md) {
-    max-width: 60%;
-  }
-
+    max-height: 440px;
+    .transactions{
+      max-height: 400px;
+      overflow: auto;
+      width: 105%;
+      padding-right: 5%;
+    }}
   hr{
     display: none;
     @include media-up(md) {

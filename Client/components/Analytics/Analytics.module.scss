@@ -2,10 +2,28 @@
 
 .container {
   @include container();
-  background-color: #f2f3f6;
-
   height: 90vh;
   padding-bottom: 2rem;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  @include media-up(md) {
+    margin-top: 1rem;
+    justify-content: center;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 50% 40%;
+    grid-template-rows: auto 1.5fr;
+    gap: 0.2rem 2rem;
+    grid-template-areas:
+      "filter resume"
+      "chart transactions";
+    // width: fit-content;
+    width: 100%;
+    height: max-content;
+    padding: 1rem;
+  }
 }
 
 .content {
@@ -15,12 +33,15 @@
 
 .filterSelector {
   width: 100%;
+  max-width: 430px;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 0.5rem;
-  .filter{
+  .filter {
     width: 67px;
     height: 27px;
+    cursor: pointer;
+    user-select: none;
     p {
       font-family: "Nunito";
       font-style: normal;
@@ -30,10 +51,16 @@
       color: rgba(0, 0, 0, 0.5);
     }
   }
-  .filterActive{
+  .filterActive {
     width: 67px;
     height: 25px;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #347af0;
+    cursor: pointer;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      #347af0;
     border: 1px solid #0c3a94;
     /* SoftShadow */
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -44,18 +71,62 @@
       font-weight: 700;
       text-align: center;
       line-height: 1.4rem;
-      color: black
+      color: black;
     }
   }
+  @include media-up(md) {
+    grid-area: filter;
+    margin: 0;
+    align-self: end;
+  }
 }
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
 
+  @include media-up(md) {
+    grid-area: chart;
+    max-width: 50vh;
+    justify-self: center;
+    min-width: 400px;
+  }
+}
 .resume {
   width: 100%;
   margin: 35px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  width: 100%;
+  max-width: 450px;
+  
+  h3{
+    text-align-last: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  @include media-up(md) {
+    grid-area: resume;
+    margin: 0;
+    align-self: end;
+  }
+  .resumeBoxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
+
+.transactions {
+  width: 100%;
+  max-width: 600px;
+
+  @include media-up(md) {
+    grid-area: transactions;
+  }
+}
+
 .month {
   display: flex;
   width: 144px;

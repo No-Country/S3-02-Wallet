@@ -7,7 +7,7 @@ $button-size: calc(60px * 0.5);
   justify-content: space-between;
   width: 100%;
   padding-top: 0.5rem;
-  background-color: #f2f3f6;
+  background-color: #ececec;
   max-width: 1024px;
   margin: auto;
 
@@ -104,7 +104,7 @@ $button-size: calc(60px * 0.5);
 .dropdown {
   z-index: 2;
   position: absolute;
-  top: 75px;
+  top: 140px;
   width: 300px;
   transform: translateX(-83%);
   -webkit-transform: translateX(-83%);
