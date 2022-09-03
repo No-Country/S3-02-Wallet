@@ -104,7 +104,11 @@
   &:focus:placeholder-shown {
     border-color: red;
   }
+  
+  
 }
+
+
 
 .inputError {
   position: absolute;
@@ -154,6 +158,7 @@
 }
 
 .label {
+  background-color: #0456ad;
   position: absolute;
   left: 1rem;
   top: 0.8rem;
@@ -183,6 +188,9 @@
   font-size: 0.8rem;
   left: 0.8rem;
 }
+
+
+
 
 .checkbox {
   display: flex;

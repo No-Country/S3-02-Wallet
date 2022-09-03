@@ -6,7 +6,7 @@ const CardSelector = ({ cards }) => {
     <div className={styles.selector}>
       <span className={styles.snap}>
         {cards.length ? (
-          cards.map((card) => <Card card={card} key={card.number} />)
+            cards.map((card) =>  <div className={styles.card}><Card card={card} key={card.number} /> </div>)
         ) : (
           <div>
             <p>false</p>

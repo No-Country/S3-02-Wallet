@@ -11,17 +11,16 @@
   @include media-up(md) {
     margin-top: 1rem;
     justify-content: center;
+    width: 90%;
     display: grid;
-    grid-template-columns: fit-content(50vw) fit-content(50vw);
+    grid-template-columns: 50% 40%;
     grid-template-rows: auto 1.5fr;
     gap: 0.2rem 2rem;
     grid-template-areas:
       "filter resume"
       "chart transactions";
-    background: #ececec;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    width: fit-content;
+    // width: fit-content;
+    width: 100%;
     height: max-content;
     padding: 1rem;
   }

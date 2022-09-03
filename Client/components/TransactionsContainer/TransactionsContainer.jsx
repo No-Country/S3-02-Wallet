@@ -2,10 +2,10 @@ import React from 'react'
 import Transaction from "../Transaction/Transaction"
 
 import styles from "./TransactionsContainer.module.scss"
-import transactions from "../../TestData"
+import Usuario from "../../TestData"
 
 function TransactionsContainer(props) {
-
+    const transactions = Usuario.transactions
     const sortedTransactions = transactions.sort((a, b) => b.date - a.date)
 
     let transactionsToShow = props.qTransactions;

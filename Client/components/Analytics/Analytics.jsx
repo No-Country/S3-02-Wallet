@@ -3,7 +3,7 @@ import styles from "./Analytics.module.scss";
 import { React, useState } from "react";
 import TransactionsContainer from "../TransactionsContainer/TransactionsContainer";
 import Chart from "../Chart/Chart";
-import transactions from "../../TestData";
+import Usuario from "../../TestData";
 
 import GreenArrow from "../../public/img/greenArrow.svg";
 import RedArrow from "../../public/img/redArrow.svg";
@@ -41,7 +41,7 @@ const toStringWeek = (week) => {
 const toPositive = (x) => { return (x * -1) };
 
 const Analytics = () => {
-
+  const transactions = Usuario.transactions
   const [selectedFilter, setSelectedFilter] = useState("year");
   const [chartData, setChartData] = useState({ labels: [], data: [] });
   const today = new Date()
@@ -126,7 +126,7 @@ const Analytics = () => {
   let expensesByDay = []
 
 
-  weeksOfMonths.map((week) => {         
+  weeksOfMonths.map((week) => {       
     if (actualDay >= week[0] && actualDay <= week[week.length - 1]) {
            transactions.map((transaction) => {
              if (transaction.date.getDate() >= week[0] && transaction.date.getDate() <= week[week.length - 1]) {

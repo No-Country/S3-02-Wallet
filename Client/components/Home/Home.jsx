@@ -9,10 +9,11 @@ import { setShowProfile } from "../../store/profileSlice";
 import MiddleMenu from "../MiddleMenu/MiddleMenu";
 import Offers from "../Offers/Offers";
 import TransactionsContainer from "../TransactionsContainer/TransactionsContainer";
-
+import Usuario from '../../TestData'
 const Home = () => {
   const dispatch = useDispatch();
-
+ const balance = Usuario.balance
+const cards = Usuario.cards
   return (
     <motion.div
       initial={{
@@ -38,14 +39,10 @@ const Home = () => {
       }
     >
       <div className={styles.content}>
-        <Balance />
+        <Balance balance={balance}/>
         <MiddleMenu />
         <CardSelector
-          cards={[
-            { provider: "visa", level: "base", number: 8888777766665555 },
-            { provider: "mc", level: "black", number: 8888777766668555 },
-            { provider: "mc", level: "platinum", number: 8888777766664555 },
-          ]}
+          cards={cards}
         />
         <TransactionsContainer qTransactions={3} background={true} />
         <Offers />
@@ -54,21 +51,17 @@ const Home = () => {
 
       <div className={styles.contentMd}>
         <div className={styles.Header}>
-          <Balance />
+          <Balance balance={balance}/>
         </div>
         <div className={styles.CardsPromo}>
           <CardSelector
-            cards={[
-              { provider: "visa", level: "base", number: 8888777766665555 },
-              { provider: "mc", level: "black", number: 8888777766668555 },
-              { provider: "mc", level: "platinum", number: 8888777766664555 },
-            ]}
+           cards={cards}
           />
           <Offers />
         </div>
         <div className={styles.Transactions}>
           <MiddleMenu />
-          <TransactionsContainer qTransactions={6} background={false} />
+          <TransactionsContainer qTransactions={7} background={false} />
         </div>
         </div>
     </motion.div>

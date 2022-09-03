@@ -20,13 +20,13 @@ const MiddleMenu = () => {
         <h5>Cards</h5>
       </div>
 
-      <div
+      {/* <div
         onClick={() => dispatch(setSection("transfer"))}
         className={styles.menuItem}
       >
         <Transfer className={styles.icon} />
         <h5>Transfer</h5>
-      </div>
+      </div> */}
 
       <div
         onClick={() => dispatch(setSection("analytics"))}

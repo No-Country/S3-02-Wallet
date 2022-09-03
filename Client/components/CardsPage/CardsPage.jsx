@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { IosArrowRight } from "@styled-icons/fluentui-system-filled/IosArrowRight";
 import { PlusCircle } from "@styled-icons/boxicons-solid/PlusCircle";
-
 import styles from "./CardsPage.module.scss";
 import Card from "../Card/Card";
+import Usuario from "../../TestData";
 
 const CardsPage = () => {
+const cards = Usuario.cards
+
   return (
     <motion.div
       initial={{
@@ -33,7 +35,7 @@ const CardsPage = () => {
       </div> */}
 
       <div className={styles.container}>
-        <div className={styles.card}>
+        {/* <div className={styles.card}>
           <Card
             card={{ provider: "visa", level: "base", number: 8888777766665555 }}
           />
@@ -44,11 +46,11 @@ const CardsPage = () => {
             </div>
             <IosArrowRight className={styles.arrow} />
           </div>
-        </div>
-
+        </div> */}
+{cards.length ? cards.map((card)=>
         <div className={styles.card}>
           <Card
-            card={{ provider: "mc", level: "black", number: 8888777766668555 }}
+            card={card}
           />
           <div className={styles.limit}>
             <div className={styles.text}>
@@ -58,6 +60,8 @@ const CardsPage = () => {
             <IosArrowRight className={styles.arrow} />
           </div>
         </div>
+):<></>
+}
 
         {/* <div className={styles.add}>
           <PlusCircle />

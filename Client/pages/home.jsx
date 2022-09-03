@@ -18,7 +18,9 @@ export default function HomePage({ user }) {
   return (
     <>
       <div className={styles.pageContainer}>
-        <AnimatePresence>{section === "home" ? <Header user={user} /> : <HeaderAlt />}</AnimatePresence>
+        {/* <AnimatePresence> */}
+          {section === "home" ? <Header user={user} /> : <HeaderAlt />}
+          {/* </AnimatePresence> */}
         <AnimatePresence>{section === "home" && <Home user={user} />}</AnimatePresence>
         <AnimatePresence>{section === "cards" && <CardsPage />}</AnimatePresence>
         {/* <AnimatePresence>{section === "transfer" && null}</AnimatePresence> */}

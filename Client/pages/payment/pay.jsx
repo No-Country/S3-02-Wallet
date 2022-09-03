@@ -12,6 +12,7 @@ import styles from "../../styles/pay.module.scss";
 import { setPaymentDetails } from "../../store/paySlice";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useCallback } from "react";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -33,11 +34,34 @@ const Pay = () => {
   const serviceName = PaymentDetails.name;
   const serviceImg = PaymentDetails.imgPath;
 
-  const handleKeyPress = (e) => {
-    if (e.key === "a") {
-      setAmount(1);
+
+function isNumberKey(evt){
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if ((charCode < 48 || charCode > 57)  
+  && (charCode < 96 || charCode > 105) 
+){
+      evt.preventDefault();
+      return false;
+  }
+  return true;
+}
+
+  const handleUserKeyPress = useCallback(event => {
+    const { key, keyCode } = event;
+    console.log(isNumberKey(event))
+     if(isNumberKey(event)){
+      setAmount(prevUserText => `${prevUserText}${key}`);
     }
-  };
+}, []);
+
+useEffect(() => {
+    window.addEventListener("keydown", handleUserKeyPress);
+    return () => {
+        window.removeEventListener("keydown", handleUserKeyPress);
+    };
+}, [handleUserKeyPress]);
+
+
 
   const handleDelete = () => {
     setLoading(false);

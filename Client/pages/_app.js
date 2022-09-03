@@ -51,7 +51,7 @@ function WalletApp({ Component, pageProps, session, router }) {
       <PersistGate persistor={store.__persistor} loading={null}>
         {/* Need to check this later */}
         {/* <Loading /> */}
-        <AnimatePresence>
+        {/* <AnimatePresence> */}
           <Head>
             <meta
               name="viewport"
@@ -59,7 +59,7 @@ function WalletApp({ Component, pageProps, session, router }) {
             />
           </Head>
           <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
         <ToastContainer limit={1}/>
       </PersistGate>
     </SessionProvider>
